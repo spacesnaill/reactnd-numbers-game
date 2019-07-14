@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import Score from "./Score";
+import Equation from "./Equation";
 class NumberGame extends Component {
   constructor(props) {
     super(props);
@@ -9,22 +10,22 @@ class NumberGame extends Component {
     };
   }
 
-  handleCorrectAnswer() {
+  handleCorrectAnswer = () => {
     this.setState(currentState => {
       return {
         correctAnswers: currentState.correctAnswers + 1,
         totalQuestions: currentState.totalQuestions + 1
       };
     });
-  }
+  };
 
-  handleIncorrectAnswer() {
+  handleIncorrectAnswer = () => {
     this.setState(currentState => {
       return {
         totalQuestions: currentState.totalQuestions + 1
       };
     });
-  }
+  };
 
   render() {
     return (
