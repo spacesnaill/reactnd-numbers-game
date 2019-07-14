@@ -1,17 +1,22 @@
 import React from "react";
 
-function generateNumber(upperLimit) {
-  return Math.floor(Math.random() * upperLimit);
+function generateNumber(lowerLimit, upperLimit) {
+  lowerLimit = Math.ceil(lowerLimit);
+  upperLimit = Math.floor(upperLimit);
+  return Math.floor(Math.random() * (upperLimit - lowerLimit) + lowerLimit);
 }
 
 function Equation(props) {
   const upperLimit = 1000;
-  const firstOperand = generateNumber(upperLimit);
-  const secondOperand = generateNumber(upperLimit);
-  const thirdOperand = generateNumber(upperLimit);
+  const lowerLimit = 0;
+  const firstOperand = generateNumber(lowerLimit, upperLimit);
+  const secondOperand = generateNumber(lowerLimit, upperLimit);
+  const thirdOperand = generateNumber(lowerLimit, upperLimit);
   const realSolution = firstOperand + secondOperand + thirdOperand;
-  const proposedSolution =
-    generateNumber(realSolution * 0.05) + Math.floor(realSolution * 0.95);
+  const proposedSolution = generateNumber(
+    realSolution * 0.9,
+    realSolution * 1.1
+  );
 
   return (
     <div>
